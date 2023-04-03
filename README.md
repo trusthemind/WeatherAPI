@@ -1,5 +1,5 @@
 # WeatherAPI
----
+
 This is a project that use the WeatherAPI service to provide current weather conditions and forecasts for various locations. 
 To learn more about [WeatherAPI](https://www.weatherapi.com/).
 
