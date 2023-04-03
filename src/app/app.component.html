@@ -1,0 +1,32 @@
+<div id="container">
+  <form #form="ngForm" (submit)="getWeather(cityname.value)">
+    <input type="text" placeholder="Search" #cityname>
+  </form>
+  <div id="card">
+    <div id="top_card"
+         [ngStyle]=" obj.current.temp_c <= 4 ? { 'background': 'url(../assets/img/cold.jpg) no-repeat center' } : obj.current.temp_c <= 15 ? { 'background': 'url(../assets/img/warm.jpg) no-repeat center' } : { 'background': 'url(../assets/img/hot.jpg) no-repeat center' } ">
+      <h1>{{obj.location.name}}</h1>
+      <p>{{obj.location.region}}</p>
+      <div id="status">
+        <img src="{{obj.current.condition.icon}}" alt="Weather Icon">
+        <h3>{{obj.current.condition.text}}</h3><br>
+      </div>
+      <p id="temp">{{obj.current.temp_c | floor }} °C</p>
+    </div>
+    <div id="bottom_card">
+      <div>
+        <img src="../assets/icons/cold_ico.png" alt="Min temp Icon">
+        <p>Min: {{obj.forecast.forecastday[0].day.mintemp_c | floor}}  °C</p></div>
+      <div>
+        <img src="../assets/icons/hot_ico.png" alt="Max temp Icon">
+        <p>Max: {{obj.forecast.forecastday[0].day.maxtemp_c | floor}}  °C</p></div>
+      <div>
+        <img src="../assets/icons/humidity_ico.png" alt="Humidity Icon">
+        <p>Humidity: {{obj.forecast.forecastday[0].day.avghumidity}} %</p></div>
+      <div>
+        <img src="../assets/icons/windsock.png" alt="Wind Icon">
+        <p>Wind: {{obj.forecast.forecastday[0].day.avgvis_km | floor}} km/h</p></div>
+    </div>
+  </div>
+</div>
+
